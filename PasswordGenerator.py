@@ -17,7 +17,7 @@ GenerateSymbols = []
 GenerateNumbers = []
 Password_List = [GenerateLetters, GenerateSymbols, GenerateNumbers]
 Enhancend_List = []
-Hardened_Password = []
+#Hardened_Password = []
 
 
 random_integer_for_Letter =0 
@@ -49,18 +49,20 @@ for item in Password_List:
 
 print(password)
 
-
-
-
-
-
-
 #Hard Level - Order of characters randomised:
 #e.g. 4 letter, 2 symbol, 2 number = g^2jk8&P
+Hardened_Password = ""
 
-for item in Password_List:
+for item in range(0,len(Password_List)):
+
+    LettersLeft = len(Password_List)  
+    RandomChar = random.randint(0, LettersLeft-1)
+    LetterFromArray = Password_List[RandomChar]
+    ConvToStr =  "".join(LetterFromArray)
+    Hardened_Password += ConvToStr
+    Password_List.pop(RandomChar)
         
-    randomChar = random.randint(0, len(Password_List-1))
+print(Hardened_Password)
 
-    Hardened_Password[randomChar] += item
+
 
